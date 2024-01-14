@@ -1,4 +1,4 @@
-package com.dino.jeolyeomi
+package com.dino.core.ui
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -17,6 +17,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.dino.jeolyeomi", appContext.packageName)
+        assertEquals("com.dino.core.ui.test", appContext.packageName)
     }
 }

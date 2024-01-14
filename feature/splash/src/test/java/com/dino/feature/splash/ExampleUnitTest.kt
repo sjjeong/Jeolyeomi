@@ -1,4 +1,4 @@
-package com.dino.jeolyeomi
+package com.dino.feature.splash
 
 import org.junit.Assert.*
 import org.junit.Test

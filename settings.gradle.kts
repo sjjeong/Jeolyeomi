@@ -10,8 +10,12 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven("https://devrepo.kakao.com/nexus/content/groups/public/")
     }
 }
 
 rootProject.name = "Jeolyeomi"
 include(":app")
+include(":feature:signin")
+include(":core:ui")
+include(":feature:splash")

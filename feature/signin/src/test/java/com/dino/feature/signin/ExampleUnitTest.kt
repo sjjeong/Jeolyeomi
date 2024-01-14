@@ -1,4 +1,4 @@
-package com.dino.jeolyeomi
+package com.dino.feature.signin
 
 import org.junit.Assert.*
 import org.junit.Test

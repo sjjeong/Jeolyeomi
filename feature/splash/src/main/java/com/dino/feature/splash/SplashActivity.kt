@@ -13,6 +13,6 @@ class SplashActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        startActivity(Intent(Intent.ACTION_VIEW, "jeolyeomi://signin".toUri()))
+        startActivity(Intent(Intent.ACTION_VIEW, "jeolyeomi://main".toUri()))
     }
 }

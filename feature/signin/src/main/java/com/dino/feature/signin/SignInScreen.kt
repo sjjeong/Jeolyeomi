@@ -1,7 +1,6 @@
 package com.dino.feature.signin
 
 import android.content.Context
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -48,13 +47,10 @@ fun SignInScreen() {
                             coroutineScope.launch {
                                 runCatching { loginKakao(context = context) }
                                     .onSuccess {
-                                        Log.e("dino_log", "login 성공 ${it}")
-                                        UserApiClient.instance.me { user, error ->
-                                            Log.e("dino_log", "이름: ${user?.kakaoAccount?.name}")
-                                        }
+
                                     }
                                     .onFailure {
-                                        Log.e("dino_log", "login 실패 ${it}")
+
                                     }
                             }
                         },
@@ -80,7 +76,6 @@ private suspend fun loginKakao(
         }
     }
     if (UserApiClient.instance.isKakaoTalkLoginAvailable(context = context)) {
-        Log.e("dino_log", "카카오톡으로 로그인 가능")
         UserApiClient.instance
             .loginWithKakaoTalk(context = context) { token, error ->
                 if (error != null) {
@@ -98,7 +93,6 @@ private suspend fun loginKakao(
                 }
             }
     } else {
-        Log.e("dino_log", "카카오톡으로 로그인 불가능")
         UserApiClient.instance.loginWithKakaoAccount(context, callback = callback)
     }
 }

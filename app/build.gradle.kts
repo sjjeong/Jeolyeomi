@@ -4,6 +4,8 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -50,7 +52,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.8"
     }
     packaging {
         resources {
@@ -61,12 +63,21 @@ android {
 
 dependencies {
     implementation(project(":core:ui"))
+    implementation(project(":core:navigation"))
     implementation(project(":feature:signin"))
     implementation(project(":feature:splash"))
+    implementation(project(":feature:main"))
+    implementation(project(":feature:home"))
+    implementation(project(":feature:history"))
+    implementation(project(":feature:profile"))
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.kakao.sdk:v2-common:2.19.0")
     implementation("com.kakao.sdk:v2-auth:2.19.0")
-
+    implementation("com.google.dagger:hilt-android:2.46")
+    kapt("com.google.dagger:hilt-android-compiler:2.46")
 }
 
+kapt {
+    correctErrorTypes = true
+}

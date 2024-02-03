@@ -40,6 +40,7 @@ android {
 dependencies {
     implementation(project(":core:ui"))
     implementation(project(":core:navigation"))
+    implementation("com.kakao.sdk:v2-user:2.19.0")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

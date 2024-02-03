@@ -1,6 +1,7 @@
 package com.dino.feature.signin
 
 import android.content.Context
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -17,6 +18,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
@@ -47,7 +49,9 @@ fun SignInScreen() {
                             coroutineScope.launch {
                                 runCatching { loginKakao(context = context) }
                                     .onSuccess {
-
+                                        context.startActivity(Intent(Intent.ACTION_VIEW, "jeolyeomi://main".toUri()).apply {
+                                            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                        })
                                     }
                                     .onFailure {
 
